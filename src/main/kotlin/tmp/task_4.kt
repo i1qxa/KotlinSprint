@@ -1,4 +1,4 @@
-package org.example.lesson_6
+package org.example.tmp
 
 import kotlin.random.Random
 

@@ -1,4 +1,4 @@
-package org.example.lesson_6
+package org.example.tmp
 
 fun main(){
     var isSecondsSuccess = false
@@ -14,9 +14,10 @@ fun main(){
         }
     }
     var counter = 0
-    do {
+    while (counter<secondsAsInt) {
+        println("Осталось секунд:${secondsAsInt-counter}")
         Thread.sleep(1000)
         counter++
-    }while (counter<secondsAsInt)
-    println("Прошло $secondsAsInt секунд")
+    }
+    println("Время вышло")
 }
