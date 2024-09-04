@@ -8,33 +8,32 @@ fun main(){
         println("Введите пароль")
         val password = readln()
         var isLoginSuccess = false
-        while (!isLoginSuccess){
+        while (!isLoginSuccess) {
             println("Логин:")
             val loginEntered = readln()
             println("Пароль:")
             val passwordEntered = readln()
-            isLoginSuccess = (login == loginEntered)&&(password==passwordEntered)
-            if (!isLoginSuccess){
+            isLoginSuccess = (login == loginEntered) && (password == passwordEntered)
+            if (!isLoginSuccess) {
                 println("Неверная комбинация логин и пароль. Попробуйте снова")
             }
         }
         println("Авторизация прошла успешно")
-    }else{
+    } else {
         println("Доступ запрещен")
     }
-
 }
 
-fun antiRobot():Boolean{
+fun antiRobot(): Boolean{
     val digitRange = 1..10
     var tryAmount = 3
-    while (tryAmount>0){
+    while (tryAmount > 0) {
         val firstDigit = digitRange.random()
         val secondDigit = digitRange.random()
         val result = (firstDigit+secondDigit).toString()
         println("Решите пример $firstDigit + $secondDigit = ?")
         val answer = readln()
-        if (result == answer){
+        if (result == answer) {
             return true
         }
         println("Неверно")
