@@ -8,7 +8,7 @@ fun main(){
     var lastSymbolIsDigit = false
     var counter = 0
     while (counter<6){
-        pass.append(if (lastSymbolIsDigit) alphabet.random() else Random.nextInt(9))
+        pass.append(if (lastSymbolIsDigit) alphabet.random() else Random.nextInt(10))
         counter++
         lastSymbolIsDigit = !lastSymbolIsDigit
     }
