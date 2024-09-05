@@ -1,7 +1,7 @@
 package org.example.lesson_6
 
-fun main(){
-    if (antiRobot()){
+fun main() {
+    if (antiRobot()) {
         println("Добро пожаловать")
         println("Введите логин")
         val login = readln()
@@ -24,7 +24,7 @@ fun main(){
     }
 }
 
-fun antiRobot(): Boolean{
+fun antiRobot(): Boolean {
     val digitRange = 1..10
     var tryAmount = 3
     while (tryAmount > 0) {
