@@ -16,14 +16,19 @@ fun main() {
     val alphabetUpper = 'A'..'Z'
     val digitInterval = 0..9
     val validCharacters = alphabet + alphabetUpper + digitInterval
-    val password = StringBuilder()
-    password.append(alphabet.random())
-    password.append(alphabetUpper.random())
-    password.append(digitInterval.random())
+    val passwordList = mutableListOf<String>()
+    passwordList.add(alphabet.random().toString())
+    passwordList.add(alphabetUpper.random().toString())
+    passwordList.add(digitInterval.random().toString())
     passLength -= 3
     while (passLength > 0) {
-        password.append(validCharacters.random())
+        passwordList.add(validCharacters.random().toString())
         passLength--
     }
-    println("Пароль: $password")
+    val pass = StringBuilder()
+    passwordList.shuffle()
+    passwordList.map {
+        pass.append(it)
+    }
+    println("Пароль: $pass")
 }
