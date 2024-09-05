@@ -20,7 +20,7 @@ fun main() {
     password.append(alphabet.random())
     password.append(alphabetUpper.random())
     password.append(digitInterval.random())
-    passLength-=3
+    passLength -= 3
     while (passLength > 0) {
         password.append(validCharacters.random())
         passLength--
