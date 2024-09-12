@@ -12,7 +12,4 @@ fun main() {
         baseRecipeList.add(readln())
         println("Теперь в рецепте есть следующие ингредиенты: ${baseRecipeList.joinToString(separator = ", ")}")
     }
-    else {
-        return
-    }
 }
