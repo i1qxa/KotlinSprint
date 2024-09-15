@@ -3,36 +3,40 @@ package org.example.lesson_10
 import java.util.*
 import kotlin.random.Random
 
+const val WIN_COMPUTER = "Победила машина"
+const val WIN_HUMAN = "Победил человек"
+const val WIN_DRAW = "Победила дружба"
+
 fun main() {
     var humanWinAmount = 0
-    if (launchGame() == GameResult.HUMAN_WIN) humanWinAmount++
-    println("Хотите бросить кости еще раз? Введите Да или Нет")
-    while (readln().lowercase(Locale.getDefault()) == "да") {
+    do {
+        val gameResult = launchGame()
+        println(gameResult)
+        if (gameResult == WIN_HUMAN) humanWinAmount++
         println("Хотите бросить кости еще раз? Введите Да или Нет")
-        if (launchGame() == GameResult.HUMAN_WIN) humanWinAmount++
-        println("Хотите бросить кости еще раз? Введите Да или Нет")
-    }
+    } while ((readln().lowercase(Locale.getDefault()) == "да"))
     println("Человек победил: $humanWinAmount раз")
 }
 
-fun getRandomNum(): Int = Random.nextInt(7)
+fun throwDice(): Int = Random.nextInt(7)
 
-fun launchGame():GameResult {
-    val computerScore = getRandomNum()
+fun launchGame(): String {
+    val computerScore = throwDice()
     println("Компьютер бросил: $computerScore")
-    val humanScore = getRandomNum()
+    val humanScore = throwDice()
     println("Человек бросил: $humanScore")
     val gameResult = when {
         computerScore > humanScore -> {
-            GameResult.COMPUTER_WIN
+            WIN_COMPUTER
         }
+
         computerScore < humanScore -> {
-            GameResult.HUMAN_WIN
+            WIN_HUMAN
         }
+
         else -> {
-            GameResult.DRAW
+            WIN_DRAW
         }
     }
-    println(gameResult)
     return gameResult
 }
