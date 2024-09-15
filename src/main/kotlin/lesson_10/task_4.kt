@@ -5,33 +5,34 @@ import kotlin.random.Random
 
 fun main() {
     var humanWinAmount = 0
-    if (launchGame()) humanWinAmount++
+    if (launchGame() == GameResult.HUMAN_WIN) humanWinAmount++
     println("Хотите бросить кости еще раз? Введите Да или Нет")
     while (readln().lowercase(Locale.getDefault()) == "да") {
         println("Хотите бросить кости еще раз? Введите Да или Нет")
-        if (launchGame()) humanWinAmount++
+        if (launchGame() == GameResult.HUMAN_WIN) humanWinAmount++
+        println("Хотите бросить кости еще раз? Введите Да или Нет")
     }
     println("Человек победил: $humanWinAmount раз")
 }
 
 fun getRandomNum(): Int = Random.nextInt(7)
 
-fun launchGame():Boolean {
+fun launchGame():GameResult {
     val computerScore = getRandomNum()
     println("Компьютер бросил: $computerScore")
     val humanScore = getRandomNum()
     println("Человек бросил: $humanScore")
     val gameResult = when {
         computerScore > humanScore -> {
-            "Победила машина"
+            GameResult.COMPUTER_WIN
         }
         computerScore < humanScore -> {
-            "Победил человек"
+            GameResult.HUMAN_WIN
         }
         else -> {
-            "Победила дружба"
+            GameResult.DRAW
         }
     }
     println(gameResult)
-    return gameResult == "Победил человек"
+    return gameResult
 }
