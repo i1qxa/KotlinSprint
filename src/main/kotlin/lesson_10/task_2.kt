@@ -1,11 +1,13 @@
 package org.example.lesson_10
 
+const val MIN_CREDS_LENGTH = 4
+
 fun main() {
     println("Введите логин")
     val login = readln()
     println("Введите пароль")
     val pass = readln()
-    val validateResultMsg = if (validateLoginAndPass(login, pass)) {
+    val validateResultMsg = if (validateCreds(login) && validateCreds(pass)) {
         "Добро пожаловать, $login"
     }
     else {
@@ -14,4 +16,4 @@ fun main() {
     println(validateResultMsg)
 }
 
-fun validateLoginAndPass(login:String, pass:String):Boolean = (login.length >= 4) && (pass.length >=4)
+fun validateCreds(creds:String):Boolean = creds.length >= MIN_CREDS_LENGTH
