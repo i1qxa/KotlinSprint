@@ -9,16 +9,16 @@ fun main() {
     println("Ваш пароль: $pass")
 }
 
-fun generatePass(passLength:Int):String{
-    val pass = StringBuilder()
-    var counter = 0
-    while (counter < passLength) {
-        pass.append(Random.nextInt(10))
-        counter++
-        if (counter < passLength) {
-            pass.append(" !\"#\$%&'()*+,-./".random())
-            counter++
-        }
+fun generatePass(passLength: Int): String {
+    var pass = ""
+    for (i in 0 until  passLength / 2) {
+        pass += getRandomDigit()
+        pass += getRandomSymbol()
     }
-    return pass.toString()
+    if (passLength %2 != 0) pass += getRandomDigit()
+    return pass
 }
+
+fun getRandomDigit():Int = Random.nextInt(10)
+
+fun getRandomSymbol():Char = Char((' '.code..'/'.code).random())
