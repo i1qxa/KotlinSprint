@@ -5,8 +5,11 @@ fun main() {
     println("На сколько порций необходимо приготовить омлет?")
     val numServings = readln().toInt()
     val recipeItemAmount = baseRecipeItemAmount.map {
-        it*numServings
+        it * numServings
     }
-    println("На $numServings порций вам понадобится: Яиц – ${recipeItemAmount[0]}, молока – ${recipeItemAmount[1]}" +
-            ", сливочного масла – ${recipeItemAmount[2]}")
+    println(
+        "На $numServings порций вам понадобится: Яиц – ${recipeItemAmount[0]}" +
+                ", молока – ${recipeItemAmount[1]}" +
+                ", сливочного масла – ${recipeItemAmount[2]}"
+    )
 }
