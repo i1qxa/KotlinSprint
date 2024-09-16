@@ -19,7 +19,7 @@ class User(
     val login: String,
     var pass: String,
     val email: String,
-    var bio: String = "",
+    var bio: String? = null,
 ) {
 
     fun printUserInfo() {
