@@ -1,4 +1,4 @@
-package org.example.lesson_6
+package org.example.lesson_1_10.lesson_6
 
 fun main() {
     val guessDigit = (1..10).random().toString()

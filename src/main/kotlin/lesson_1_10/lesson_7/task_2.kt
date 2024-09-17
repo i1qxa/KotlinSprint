@@ -1,4 +1,4 @@
-package org.example.lesson_7
+package org.example.lesson_1_10.lesson_7
 
 fun main() {
     val digitRange = 1000..9999

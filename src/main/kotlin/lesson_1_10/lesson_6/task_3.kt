@@ -1,18 +1,23 @@
-package org.example.lesson_6
+package org.example.lesson_1_10.lesson_6
 
 fun main(){
     var isSecondsSuccess = false
-    var secondsAsLong = 0L
+    var secondsAsInt = 0
     while (!isSecondsSuccess){
         println("Введите количество секунд которые необходимо засечь")
         val secondsAsString = readln()
         try {
-            secondsAsLong = secondsAsString.toLong()
+            secondsAsInt = secondsAsString.toInt()
             isSecondsSuccess=true
         }catch (e:NumberFormatException){
             println("Ошибка. Секунды нужно ввести в числовом формате")
         }
     }
-    Thread.sleep(secondsAsLong*1000)
-    println("Прошло $secondsAsLong секунд")
+    var counter = 0
+    while (counter<secondsAsInt) {
+        println("Осталось секунд:${secondsAsInt-counter}")
+        Thread.sleep(1000)
+        counter++
+    }
+    println("Время вышло")
 }
