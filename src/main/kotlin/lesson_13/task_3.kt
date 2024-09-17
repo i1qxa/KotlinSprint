@@ -19,7 +19,7 @@ class Contact3(
     val name: String,
     val company: String? = null,
 ) {
-    fun printContactInfo(){
-        println("\n-Имя:$name\n-Номер:$phoneNumber\n-Компания:${company?:"не указано"}")
+    fun printContactInfo() {
+        println("\n-Имя:$name\n-Номер:$phoneNumber\n-Компания:${company ?: "не указано"}")
     }
 }
