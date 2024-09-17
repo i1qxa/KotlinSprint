@@ -1,7 +1,7 @@
 package org.example.lesson_11
 
 fun main() {
-    val user1 = User(
+    val user1 = User6(
         1,
         "user",
         "1234",
@@ -14,7 +14,7 @@ fun main() {
     }
 }
 
-class User(
+class User6(
     val id: Int,
     val login: String,
     var pass: String,
