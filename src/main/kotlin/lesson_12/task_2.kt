@@ -1,14 +1,14 @@
 package org.example.lesson_12
 
-fun main(){
+fun main() {
     val mondayWeather = MyWeatherData(25, 12, true)
     mondayWeather.printWeatherData()
 }
 
 class MyWeatherData(
-    val dayTemp:Int,
-    var nightTemp:Int,
-    var isPrecipitation:Boolean,
+    val dayTemp: Int,
+    var nightTemp: Int,
+    var isPrecipitation: Boolean,
 ) {
 
     fun printWeatherData() {
