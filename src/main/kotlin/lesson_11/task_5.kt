@@ -32,7 +32,7 @@ class Forum(
     fun printThread() {
         messageList.forEach { msg ->
             getUserNameById(msg.authorId)?.let { userName ->
-                msg.printInConsole(userName)
+                println("$userName:${msg.message}")
             }
         }
     }
@@ -61,8 +61,4 @@ class ForumMember(
 class ForumMessage(
     val authorId: Int,
     val message: String,
-) {
-    fun printInConsole(userName: String) {
-        println("$userName:$message")
-    }
-}
+)
