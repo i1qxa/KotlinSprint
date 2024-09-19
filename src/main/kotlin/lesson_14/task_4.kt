@@ -21,7 +21,7 @@ abstract class CelestialBody(
 }
 
 class Satellite(name: String, isAtmosphereExist: Boolean, isSuitableForLanding: Boolean) :
-    CelestialBody(name, isAtmosphereExist, isSuitableForLanding){
+    CelestialBody(name, isAtmosphereExist, isSuitableForLanding) {
     override fun printCelestialBodyName() {
         println("Название спутника: $name")
     }
