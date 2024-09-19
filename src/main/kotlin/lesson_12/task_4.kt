@@ -1,7 +1,5 @@
 package org.example.lesson_12
 
-const val DIFFERENT_BETWEEN_KELVIN_AND_CELSIUS = 273
-
 fun main() {
     val weather = WeatherData1(300, 289, true)
 }

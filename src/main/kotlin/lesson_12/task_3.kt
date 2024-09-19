@@ -1,16 +1,16 @@
 package org.example.lesson_12
 
-const val DIFFERENT_BETWEEN_KELVIN_AND_CELSIUS = 273
+const val DIFFERENT_BETWEEN_KELVIN_AND_CELSIUS2 = 273
 
 fun main() {
-    val weather = WeatherData1(11, 2, true)
+    val weather = WeatherData6(11, 2, true)
     weather.printWeatherData()
 }
 
-class WeatherData1(_dayTempK: Int, _nightTempK: Int, _isPrecipitation: Boolean) {
+class WeatherData6(_dayTempK: Int, _nightTempK: Int, _isPrecipitation: Boolean) {
 
-    val dayTempC = _dayTempK - DIFFERENT_BETWEEN_KELVIN_AND_CELSIUS
-    val nightTempC = _nightTempK - DIFFERENT_BETWEEN_KELVIN_AND_CELSIUS
+    val dayTempC = _dayTempK - DIFFERENT_BETWEEN_KELVIN_AND_CELSIUS2
+    val nightTempC = _nightTempK - DIFFERENT_BETWEEN_KELVIN_AND_CELSIUS2
     val isPrecipitation = _isPrecipitation
 
     fun printWeatherData() {
