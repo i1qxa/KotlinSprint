@@ -1,4 +1,4 @@
-package org.example.lesson_10
+package org.example.lesson_1_10.lesson_10
 
 import java.util.*
 import kotlin.random.Random
