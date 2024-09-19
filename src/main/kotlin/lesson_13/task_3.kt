@@ -9,8 +9,8 @@ fun main() {
         Contact3(89123456009, "Агафья", null)
 
     )
-    contactList.forEach {
-        it.printContactInfo()
+    contactList.filter { contact -> contact.company!=null }.forEach { contact ->
+        println(contact.company)
     }
 }
 
