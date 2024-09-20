@@ -4,7 +4,7 @@ fun main() {
     val contactList = mutableListOf<Contact4>()
     var shouldAddContact = true
     do {
-        val contact = createContact()
+        val contact = createContact4()
         if (contact != null) contactList.add(contact)
         else println("Контакт не был добавлен так как вы не указали номер телефона")
         println("Добавить ещё один контакт? Да/Нет")
@@ -15,7 +15,7 @@ fun main() {
     }
 }
 
-fun createContact(): Contact4? {
+fun createContact4(): Contact4? {
     println("Введите имя")
     val name = readln()
     println("Введите номер телефона")
