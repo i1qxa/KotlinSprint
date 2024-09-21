@@ -11,22 +11,36 @@ fun main() {
 
 interface Floating {
 
-    fun float() {
-        println("Я могу плавать")
-    }
+    fun float()
 
 }
 
 interface Flying {
 
-    fun fly() {
-        println("Я могу летать")
-    }
+    fun fly()
 
 }
 
-class CrucianCarp() : Floating
+class CrucianCarp() : Floating {
 
-class Seagull() : Flying
+    override fun float() {
+        println("Я могу плавать")
+    }
+}
 
-class Duck() : Flying, Floating
+class Seagull() : Flying {
+    override fun fly() {
+        println("Я могу летать")
+    }
+}
+
+
+class Duck() : Flying, Floating {
+    override fun fly() {
+        println("Я могу летать")
+    }
+
+    override fun float() {
+        println("Я могу плавать")
+    }
+}
