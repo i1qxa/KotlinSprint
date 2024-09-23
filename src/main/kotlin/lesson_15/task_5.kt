@@ -6,12 +6,25 @@ const val CAR_PASSENGER_CAPACITY = 3
 
 fun main() {
     println("Грузовой автомобиль______________________")
-    Truck(1, 6, 2).apply {
-        transportCargo()
-        transportPassenger()
+    Truck(1, 7, -12).apply {
+        cargoAmount?.let {
+            var cargoLeft = it
+            while (cargoLeft > 0) {
+                cargoLeft -= this.transportCargo(cargoLeft)
+            }
+        }
+        var passengerLeft = this.passengerAmount
+        while (passengerLeft > 0) {
+            passengerLeft -= this.transportPassenger(passengerLeft)
+        }
     }
     println("Легковой автомобиль______________________")
-    Car(2, 4).transportPassenger()
+    Car(2, 4).apply {
+        var passengerLeft = this.passengerAmount
+        while (passengerLeft > 0) {
+            passengerLeft -= this.transportPassenger(passengerLeft)
+        }
+    }
 }
 
 abstract class Transport(
@@ -22,91 +35,50 @@ abstract class Transport(
 
 interface TransportCargo {
 
-    fun transportCargo()
+    fun transportCargo(cargoWeight: Int): Int
 
-    fun loadCargo(cargoWeight: Int): Int
-
-    fun unloadCargo(cargoWeight: Int)
 }
 
 interface TransportPassenger {
 
-    fun transportPassenger()
-
-    fun loadPassenger(passengerAmount: Int): Int
-
-    fun unloadPassenger(passengerAmount: Int)
+    fun transportPassenger(passengerAmount: Int): Int
 
 }
 
-class Truck(id: Int, cargoAmount: Int?, passengerAmount: Int) :
-    Transport(id, cargoAmount, passengerAmount),
+class Truck(id: Int, cargoWeight: Int, passengerAmount: Int) :
+    Transport(id, cargoWeight, passengerAmount),
     TransportCargo, TransportPassenger {
-    override fun transportCargo() {
-        cargoAmount?.let { cargoAmount ->
-            var cargoLeft = cargoAmount
-            do {
-                loadCargo(cargoLeft).also { cargoTransported ->
-                    unloadCargo(cargoTransported)
-                    cargoLeft -= cargoTransported
-                }
-            } while (cargoLeft > 0)
-        }
-    }
 
-    override fun loadCargo(cargoWeight: Int): Int {
-        val cargoTransported =
-            if (cargoWeight > TRUCK_CARGO_CAPACITY) TRUCK_CARGO_CAPACITY else cargoWeight
+    override fun transportCargo(cargoWeight: Int): Int {
+        if (cargoWeight <= 0) return 0
+        val cargoTransported = if (cargoWeight >= TRUCK_CARGO_CAPACITY) TRUCK_CARGO_CAPACITY else cargoWeight
         println("Загружено: $cargoTransported тонн")
+        println("Разгружено: $cargoTransported тонн")
         return cargoTransported
     }
 
-    override fun unloadCargo(cargoWeight: Int) {
-        println("Разгружено: $cargoWeight тонн")
-    }
 
-    override fun transportPassenger() {
-        var passengerLeft = passengerAmount
-        do {
-            loadPassenger(passengerLeft).also { passengerTransported ->
-                passengerLeft -= passengerTransported
-                unloadPassenger(passengerTransported)
-            }
-        } while (passengerLeft > 0)
-    }
-
-    override fun loadPassenger(passengerAmount: Int): Int {
+    override fun transportPassenger(passengerAmount: Int): Int {
+        if (passengerAmount <= 0) return 0
         val passengerTransported =
-            if (passengerAmount > TRUCK_PASSENGER_CAPACITY) TRUCK_PASSENGER_CAPACITY else passengerAmount
+            if (passengerAmount >= TRUCK_PASSENGER_CAPACITY) TRUCK_PASSENGER_CAPACITY else passengerAmount
         println("Сели: $passengerTransported пассажиров")
+        println("Вышли: $passengerTransported пассажиров")
         return passengerTransported
     }
 
-    override fun unloadPassenger(passengerAmount: Int) {
-        println("Вышли: $passengerAmount пассажиров")
-    }
 }
 
 class Car(id: Int, passengerAmount: Int) :
     Transport(id, null, passengerAmount), TransportPassenger {
-    override fun transportPassenger() {
-        var passengerLeft = passengerAmount
-        do {
-            loadPassenger(passengerLeft).also { passengerTransported ->
-                passengerLeft -= passengerTransported
-                unloadPassenger(passengerTransported)
-            }
-        } while (passengerLeft > 0)
-    }
 
-    override fun loadPassenger(passengerAmount: Int): Int {
+    override fun transportPassenger(passengerAmount: Int): Int {
+        if (passengerAmount < 0) return 0
         val passengerTransported =
-            if (passengerAmount > CAR_PASSENGER_CAPACITY) CAR_PASSENGER_CAPACITY else passengerAmount
+            if (passengerAmount >= CAR_PASSENGER_CAPACITY) CAR_PASSENGER_CAPACITY else passengerAmount
         println("Сели: $passengerTransported пассажиров")
+        println("Вышли: $passengerTransported пассажиров")
         return passengerTransported
     }
 
-    override fun unloadPassenger(passengerAmount: Int) {
-        println("Вышли: $passengerAmount пассажиров")
-    }
 }
