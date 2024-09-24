@@ -11,17 +11,17 @@ fun main() {
 
 }
 
-class Order(val id:Int, val goods:String)
+class Order(val id: Int, val goods: String)
 
-class OrderGoodsList(val id:Int, val goods:List<String>)
+class OrderGoodsList(val id: Int, val goods: List<String>)
 
-fun printOrderInfo(order:Order){
+fun printOrderInfo(order: Order) {
 
     println("Заказан товар:${order.goods}")
 
 }
 
-fun printOrderInfo(order:OrderGoodsList){
+fun printOrderInfo(order: OrderGoodsList) {
 
     println("Заказаны следующие товары:${order.goods}")
 
