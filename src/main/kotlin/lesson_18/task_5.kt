@@ -10,11 +10,11 @@ class Rectangle() : Figure()
 
 class Screen() {
 
-    fun drawFigure(x:Int, y:Int, figure: Figure){
+    fun drawFigure(x: Int, y: Int, figure: Figure) {
 
     }
 
-    fun drawFigure(x:Float, y:Float, figure: Figure){
+    fun drawFigure(x: Float, y: Float, figure: Figure) {
 
     }
 
