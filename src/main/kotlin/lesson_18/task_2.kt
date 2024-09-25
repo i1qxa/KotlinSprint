@@ -10,27 +10,40 @@ fun main() {
 
 abstract class Dice() {
 
+    abstract var diceValue:Int
     abstract fun throwDice()
 
 }
 
 class DiceFour() : Dice() {
 
+    override var diceValue: Int
+        get() = (1..4).random()
+        set(value) {}
+
     override fun throwDice() {
-        println("Вы бросили:${(1..4).random()}")
+        println("Вы бросили:$diceValue")
     }
 }
 
 class DiceSix() : Dice() {
 
+    override var diceValue: Int
+        get() = (1..6).random()
+        set(value) {}
+
     override fun throwDice() {
-        println("Вы бросили:${(1..6).random()}")
+        println("Вы бросили:$diceValue")
     }
 }
 
 class DiceEight() : Dice() {
 
+    override var diceValue: Int
+        get() = (1..8).random()
+        set(value) {}
+
     override fun throwDice() {
-        println("Вы бросили:${(1..8).random()}")
+        println("Вы бросили:$diceValue")
     }
 }
