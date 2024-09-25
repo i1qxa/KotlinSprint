@@ -2,27 +2,41 @@ package org.example.lesson_18
 
 fun main() {
 
-    Order(1, "Milk").apply {
-        printOrderInfo(this)
+    Order().apply {
+        printOrderInfo(1,"Milk")
     }
-    OrderGoodsList(2, listOf("Potato", "Milk", "Orange")).apply {
-        printOrderInfo(this)
+    Order().apply {
+        printOrderInfo(2, listOf("Milk", "Avocado", "Bananas"))
     }
 
 }
 
-class Order(val id: Int, val goods: String)
+class Order(){
 
-class OrderGoodsList(val id: Int, val goods: List<String>)
+    fun printOrderInfo(id: Int, goods:String) {
 
-fun printOrderInfo(order: Order) {
+        println("Заказан товар:$goods")
 
-    println("Заказан товар:${order.goods}")
+    }
+
+    fun printOrderInfo(id: Int, goods:List<String>) {
+
+        println("Заказаны следующие товары:$goods")
+
+    }
 
 }
 
-fun printOrderInfo(order: OrderGoodsList) {
-
-    println("Заказаны следующие товары:${order.goods}")
-
-}
+//class OrderGoodsList(val id: Int, val goods: List<String>)
+//
+//fun printOrderInfo(order: Order) {
+//
+//    println("Заказан товар:${order.goods}")
+//
+//}
+//
+//fun printOrderInfo(order: OrderGoodsList) {
+//
+//    println("Заказаны следующие товары:${order.goods}")
+//
+//}
