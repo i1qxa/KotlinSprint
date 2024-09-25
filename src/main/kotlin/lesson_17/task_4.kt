@@ -1,7 +1,7 @@
 package org.example.lesson_17
 
 fun main() {
-    Package(10).apply {
+    Package(10, "Bobruisk").apply {
         currentLocation = "London"
         currentLocation = "Liverpool"
         currentLocation = "Paris"
@@ -9,10 +9,10 @@ fun main() {
     }
 }
 
-class Package(val packageNumber:Int){
+class Package(val packageNumber: Int, location: String) {
 
     var transportAmount = 0
-    var currentLocation:String = ""
+    var currentLocation: String = location
         set(value) {
             field = value
             transportAmount++
