@@ -11,13 +11,7 @@ fun main() {
 class User(login:String, pass:String){
 
     var pass = pass
-        get() {
-            var passHide = ""
-            repeat(field.length){
-                passHide+="*"
-            }
-            return passHide
-        }
+        get() = "*".repeat(field.length)
         set(value) = println("Вы не можете изменить пароль")
 
     var login = login
