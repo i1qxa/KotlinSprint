@@ -5,7 +5,7 @@ fun main() {
     println(FISH.entries)
 }
 
-enum class FISH{
+enum class FISH {
     GUPPY,
     ANGELFISH,
     GOLDFISH,
