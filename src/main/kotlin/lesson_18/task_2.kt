@@ -10,7 +10,7 @@ fun main() {
 
 abstract class Dice {
 
-    abstract var diceValue:Int
+    abstract var diceValue: Int
     abstract fun throwDice()
 
 }
@@ -45,4 +45,4 @@ class DiceEight : Dice() {
     }
 }
 
-fun getRandomIntInRange(range: IntRange):Int = range.random()
+fun getRandomIntInRange(range: IntRange): Int = range.random()
