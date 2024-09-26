@@ -17,32 +17,30 @@ abstract class Dice {
 
 class DiceFour : Dice() {
 
-    override var diceValue: Int = getRandomIntInRange(1..4)
+    override var diceValue: Int = (1..4).random()
 
     override fun throwDice() {
-        diceValue = getRandomIntInRange(1..4)
+        diceValue = (1..4).random()
         println("Вы бросили:$diceValue")
     }
 }
 
 class DiceSix : Dice() {
 
-    override var diceValue: Int = getRandomIntInRange(1..6)
+    override var diceValue: Int = (1..6).random()
 
     override fun throwDice() {
-        diceValue = getRandomIntInRange(1..6)
+        diceValue = (1..6).random()
         println("Вы бросили:$diceValue")
     }
 }
 
 class DiceEight : Dice() {
 
-    override var diceValue: Int = getRandomIntInRange(1..8)
+    override var diceValue: Int = (1..8).random()
 
     override fun throwDice() {
-        diceValue = getRandomIntInRange(1..8)
+        diceValue = (1..8).random()
         println("Вы бросили:$diceValue")
     }
 }
-
-fun getRandomIntInRange(range: IntRange): Int = range.random()
