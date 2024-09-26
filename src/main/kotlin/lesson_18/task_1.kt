@@ -26,17 +26,3 @@ class Order() {
     }
 
 }
-
-//class OrderGoodsList(val id: Int, val goods: List<String>)
-//
-//fun printOrderInfo(order: Order) {
-//
-//    println("Заказан товар:${order.goods}")
-//
-//}
-//
-//fun printOrderInfo(order: OrderGoodsList) {
-//
-//    println("Заказаны следующие товары:${order.goods}")
-//
-//}
