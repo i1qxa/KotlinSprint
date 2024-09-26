@@ -8,42 +8,41 @@ fun main() {
 
 }
 
-abstract class Dice() {
+abstract class Dice {
 
     abstract var diceValue:Int
     abstract fun throwDice()
 
 }
 
-class DiceFour() : Dice() {
+class DiceFour : Dice() {
 
-    override var diceValue: Int
-        get() = (1..4).random()
-        set(value) {}
+    override var diceValue: Int = getRandomIntInRange(1..4)
 
     override fun throwDice() {
+        diceValue = getRandomIntInRange(1..4)
         println("Вы бросили:$diceValue")
     }
 }
 
-class DiceSix() : Dice() {
+class DiceSix : Dice() {
 
-    override var diceValue: Int
-        get() = (1..6).random()
-        set(value) {}
+    override var diceValue: Int = getRandomIntInRange(1..6)
 
     override fun throwDice() {
+        diceValue = getRandomIntInRange(1..6)
         println("Вы бросили:$diceValue")
     }
 }
 
-class DiceEight() : Dice() {
+class DiceEight : Dice() {
 
-    override var diceValue: Int
-        get() = (1..8).random()
-        set(value) {}
+    override var diceValue: Int = getRandomIntInRange(1..8)
 
     override fun throwDice() {
+        diceValue = getRandomIntInRange(1..8)
         println("Вы бросили:$diceValue")
     }
 }
+
+fun getRandomIntInRange(range: IntRange):Int = range.random()
