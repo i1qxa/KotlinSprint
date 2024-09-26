@@ -2,10 +2,10 @@ package org.example.lesson_19
 
 fun main() {
     println("Вы можете добавить в свой аквариум следующие виды рыб")
-    println(FISH.entries)
+    println(Fish.entries)
 }
 
-enum class FISH {
+enum class Fish {
     GUPPY,
     ANGELFISH,
     GOLDFISH,
