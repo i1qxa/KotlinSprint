@@ -2,8 +2,15 @@ package org.example.lesson_22
 
 fun main() {
 
+    val viewModel = ViewModel()
+    viewModel.loadData()
+    viewModel.loadData()
+    viewModel.loadData()
+
+}
+
+class ViewModel() {
     var state = State()
-    println(state)
 
     fun loadData() {
         if (state.isLoading) {
@@ -15,11 +22,6 @@ fun main() {
         }
 
     }
-
-    loadData()
-    loadData()
-    loadData()
-
 }
 
 data class State(val data: String? = null, val isLoading: Boolean = false)
